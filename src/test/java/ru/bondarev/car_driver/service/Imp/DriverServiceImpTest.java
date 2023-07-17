@@ -49,7 +49,7 @@ class DriverServiceImpTest {
         testDriver = Driver.builder()
                 .id(1L)
                 .name("testDriver")
-                .birthday(LocalDate.of(1991,02,11))
+                .birthday(LocalDate.of(1991, 2,11))
                 .greenmoney(100.0)
                 .cars(cars)
                 .build();
@@ -60,9 +60,9 @@ class DriverServiceImpTest {
     void getDriverById() {
 
         when(driverRepository.findById(anyLong())).thenReturn(Optional.of(testDriver));
-        DriverResponse existingDriverResponse = driverService.getDriverById(testDriver.getId());
-        assertNotNull(existingDriverResponse);
-        assertThat(existingDriverResponse.getId()).isNotEqualTo(null);
+        DriverResponse driverResponse = driverService.getDriverById(testDriver.getId());
+        assertNotNull(driverResponse);
+        assertThat(driverResponse.getId()).isNotEqualTo(null);
     }
 
     @Test
